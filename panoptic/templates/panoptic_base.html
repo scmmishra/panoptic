@@ -78,4 +78,8 @@
 	{% block script %} {% endblock %}
 </body>
 
+{%- for link in web_include_js %}
+<script type="text/javascript" src="{{ link | abs_url }}"></script>
+{%- endfor -%}
+
 </html>
