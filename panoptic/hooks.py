@@ -16,7 +16,7 @@ home_page = "index"
 
 update_website_context = ["panoptic.panoptic.api.update_website_context"]
 
-after_migrate= ["panoptic.panoptic.search.build_index_for_all_routes"]
+after_migrate = ["panoptic.panoptic.search.build_index_for_all_routes"]
 # base_template = "templates/panoptic_base.html"
 
 # Includes in <head>
@@ -49,7 +49,7 @@ after_migrate= ["panoptic.panoptic.search.build_index_for_all_routes"]
 
 # website user home page (by Role)
 # role_home_page = {
-#	"Role": "home_page"
+# 	"Role": "home_page"
 # }
 
 # Generators
@@ -99,7 +99,7 @@ after_migrate= ["panoptic.panoptic.search.build_index_for_all_routes"]
 # 		"on_update": "method",
 # 		"on_cancel": "method",
 # 		"on_trash": "method"
-#	}
+# 	}
 # }
 
 # Scheduled Tasks
@@ -145,4 +145,3 @@ after_migrate= ["panoptic.panoptic.search.build_index_for_all_routes"]
 # exempt linked doctypes from being automatically cancelled
 #
 # auto_cancel_exempted_doctypes = ["Auto Repeat"]
-
