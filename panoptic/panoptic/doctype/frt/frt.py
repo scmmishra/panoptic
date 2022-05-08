@@ -7,6 +7,7 @@ import frappe
 from frappe.model.naming import make_autoname
 from frappe.website.website_generator import WebsiteGenerator
 from panoptic.utils import shorten_number
+from panoptic.panoptic.search import update_index_for_doc, remove_document_from_index
 
 class FRT(WebsiteGenerator):
 	def autoname(self):
@@ -15,6 +16,14 @@ class FRT(WebsiteGenerator):
 
 	def on_update(self):
 		self.route = self.make_route()
+		if self.published:
+			update_index_for_doc(self.doctype, self.name)
+		else:
+			remove_document_from_index(self.doctype, self.name)
+
+	def on_trash(self):
+		remove_document_from_index(self.doctype, self.name)
+		return super().on_trash()
 
 	def make_route(self):
 		return frappe.get_value("State", self.state, 'route') + '/' + self.name
@@ -76,4 +85,14 @@ class FRT(WebsiteGenerator):
 				all_rtis.append(rti)
 
 		return all_rtis
+
+	def get_search_doc(self):
+		return frappe._dict(
+			title=self.name,
+			type="FRT",
+			name=f"{self.doctype}////{self.name}",
+			content="",
+			path=self.route,
+			keywords=", ".join([str(self.state), str(self.city), str(self.authority), str(self.purpose), str(self.district_name)]),
+		)
 
