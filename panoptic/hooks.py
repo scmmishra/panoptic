@@ -48,7 +48,7 @@ update_website_context = ["panoptic.panoptic.api.update_website_context"]
 
 # website user home page (by Role)
 # role_home_page = {
-#	"Role": "home_page"
+# 	"Role": "home_page"
 # }
 
 # Generators
@@ -98,7 +98,7 @@ update_website_context = ["panoptic.panoptic.api.update_website_context"]
 # 		"on_update": "method",
 # 		"on_cancel": "method",
 # 		"on_trash": "method"
-#	}
+# 	}
 # }
 
 # Scheduled Tasks
@@ -144,4 +144,3 @@ update_website_context = ["panoptic.panoptic.api.update_website_context"]
 # exempt linked doctypes from being automatically cancelled
 #
 # auto_cancel_exempted_doctypes = ["Auto Repeat"]
-
