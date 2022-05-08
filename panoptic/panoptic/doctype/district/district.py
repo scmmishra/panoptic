@@ -8,9 +8,15 @@ from frappe.model.naming import make_autoname
 import frappe
 from frappe.model.document import Document
 
-class District(Document):
-	def autoname(self):
-		self.name = (cstr(self.district_name).strip() + ", " + cstr(self.state).strip())
 
-		if frappe.db.exists("District", self.name):
-			self.name = make_autoname(cstr(self.district_name).strip() + ", " + cstr(self.state).strip() + "-.#")
+class District(Document):
+    def autoname(self):
+        self.name = cstr(self.district_name).strip() + ", " + cstr(self.state).strip()
+
+        if frappe.db.exists("District", self.name):
+            self.name = make_autoname(
+                cstr(self.district_name).strip()
+                + ", "
+                + cstr(self.state).strip()
+                + "-.#"
+            )
